@@ -8,19 +8,39 @@ class StartScreen extends StatefulWidget {
 
 class _StartScreenState extends State<StartScreen>
     with SingleTickerProviderStateMixin {
+  TabController _tabController;
 
   @override
   void initState() {
     super.initState();
+    _tabController = TabController(vsync: this, length: 3);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-      ),
-      body: Text("welcome to your start screen"),
-    );
+        appBar: AppBar(
+          centerTitle: true,
+          bottom: TabBar(
+            controller: _tabController,
+            tabs: <Widget>[
+              Tab(text: "politics"),
+              Tab(text: "money"),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          controller: _tabController,
+          children: <Widget>[
+            Text("inside politics"),
+            Text("inside money"),
+          ],
+        ));
   }
 }

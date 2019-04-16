@@ -1,4 +1,17 @@
 
+import 'package:blokal/models/base_model.dart';
+
+class NewsModel extends BaseModel {
+  final String categoryUrl;
+
+  NewsModel(this.categoryUrl);
+
+  @override
+  Future fetchData() async {
+    setLoading(false);
+  }
+}
+
 class News {
   final String title;
   final String content;
