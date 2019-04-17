@@ -1,3 +1,4 @@
+import 'package:blokal/ui/widgets/news_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -38,7 +39,7 @@ class _StartScreenState extends State<StartScreen>
         body: TabBarView(
           controller: _tabController,
           children: <Widget>[
-            Text("inside politics"),
+            NewsListItem(),
             Text("inside money"),
           ],
         ));
