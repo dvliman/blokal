@@ -16,7 +16,12 @@ class _StartScreenState extends State<StartScreen>
 
   static final List<NewsModel> _models = [
     NewsModel("news"),
-    NewsModel("money"),
+    NewsModel("finance"),
+    NewsModel("tekno"),
+    NewsModel("sports"),
+    NewsModel("otomotif"),
+    NewsModel("entertainment"),
+    NewsModel("lifestyle"),
   ];
 
   @override
@@ -43,38 +48,40 @@ class _StartScreenState extends State<StartScreen>
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          bottom: TabBar(
-            controller: _tabController,
-            indicatorPadding: EdgeInsets.symmetric(horizontal: 20),
-            tabs: <Tab>[
-              Tab(text: "news"),
-              Tab(text: "money"),
-              Tab(text: "bola"),
-              Tab(text: "tekno"),
-              Tab(text: "otomotif"),
-              Tab(text: "lifestyle"),
-              Tab(text: "kolum"),
-            ],
+          bottom: PreferredSize(
+            preferredSize: Size.fromHeight(5.0),
+            child: TabBar(
+              controller: _tabController,
+              isScrollable: true,
+              tabs: <Tab>[
+                Tab(text: "news"),
+                Tab(text: "finance"),
+                Tab(text: "tekno"),
+                Tab(text: "sports"),
+                Tab(text: "otomotif"),
+                Tab(text: "entertainment"),
+                Tab(text: "lifestyle"),
+              ],
+            ),
           ),
         ),
         body: TabBarView(
           controller: _tabController,
           children: <ScopedModel> [
-            ScopedModel<NewsModel>(
-              model: _models[0],
-              child: NewsList()
-            ),
-            ScopedModel<NewsModel>(
-              model: _models[1],
-              child: NewsList()
-            )
+            toScopedModel(_models[0]), // news
+            toScopedModel(_models[1]), // finance
+            toScopedModel(_models[2]), // tekno
+            toScopedModel(_models[3]), // sports
+            toScopedModel(_models[4]), // otomotif
+            toScopedModel(_models[5]), // entertainment
+            toScopedModel(_models[6]), // lifestyle
           ]
         )
     );
   }
-
-  ScopedModel toScopedModel(NewsModel model) {
-    return ScopedModel<NewsModel> (
+  
+  ScopedModel<NewsModel> toScopedModel(NewsModel model) {
+    return ScopedModel<NewsModel>(
       model: model,
       child: NewsList()
     );

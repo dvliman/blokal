@@ -23,7 +23,7 @@ class NewsModel extends BaseModel {
 
     List<dynamic> newsJson = json.decode(response.body);
 
-    print("NewsModel: fetchData: category = $category, reply: $newsJson");
+    print("NewsModel: fetchData: category = $category, reply: ${newsJson.length}");
     _news.clear();
     _news.addAll(newsJson.map((json) => News.fromJson(json)));
 
