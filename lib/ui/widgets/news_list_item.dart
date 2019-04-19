@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class NewsListItem extends StatelessWidget {
-//  final News news;
-//
-//  NewsListItem({this.news});
+  final News news;
+
+  NewsListItem({this.news});
 
   @override
   Widget build(BuildContext context) {

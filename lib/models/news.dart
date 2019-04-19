@@ -4,15 +4,18 @@ import 'package:blokal/models/base_model.dart';
 
 class NewsModel extends BaseModel {
   final String category;
-  List _news = List();
 
   NewsModel(this.category);
 
+  List<News> _news = List();
+  List<News> get news => _news;
+
   @override
   Future fetchData() async {
-
     var response = await http
-        .post(endpoint("news/query-news"), body: {'category': this.category});
+        .post(endpoint("news/query-news"),
+        body: {'category': this.category});
+
     var newsJson = json.decode(response.body);
 
     print("fetchData: category = $category, reply: $newsJson");
