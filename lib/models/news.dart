@@ -10,6 +10,8 @@ class NewsModel extends BaseModel {
   List<News> _news = List();
   List<News> get news => _news;
 
+  int get getCount => (_news == null) ? 0 : _news.length;
+
   @override
   Future fetchData() async {
     var response = await http

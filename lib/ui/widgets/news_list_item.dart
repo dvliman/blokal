@@ -9,10 +9,19 @@ class NewsListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-        contentPadding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
-        title: Text("some title"),
-        subtitle: Text("some subtitle")
+    return Column(
+      children: <Widget>[
+        ListTile(
+          contentPadding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
+          title: Text(this.news.title),
+          subtitle: Text(this.news.category),
+        )
+      ]
     );
+//    return ListTile(
+//        contentPadding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
+//        title: Text("some title"),
+//        subtitle: Text("some subtitle")
+//    );
   }
 }
