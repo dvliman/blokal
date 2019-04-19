@@ -19,6 +19,11 @@ class _StartScreenState extends State<StartScreen>
     NewsModel("politics"),
   ];
 
+  static final List<Tab> forTabBar = [
+    Tab(text: "news-tab"),
+    Tab(text: "politics-tab"),
+  ];
+
   static final List<ScopedModel> _tabs = [
     ScopedModel<NewsModel> (
       model: _models[0], // news
@@ -56,7 +61,7 @@ class _StartScreenState extends State<StartScreen>
           centerTitle: true,
           bottom: TabBar(
             controller: _tabController,
-            tabs: _tabs,
+            tabs: forTabBar,
           ),
         ),
         body: TabBarView(

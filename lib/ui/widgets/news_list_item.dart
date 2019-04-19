@@ -18,10 +18,5 @@ class NewsListItem extends StatelessWidget {
         )
       ]
     );
-//    return ListTile(
-//        contentPadding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
-//        title: Text("some title"),
-//        subtitle: Text("some subtitle")
-//    );
   }
 }
