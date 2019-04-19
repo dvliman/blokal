@@ -16,9 +16,9 @@ class NewsModel extends BaseModel {
         .post(endpoint("news/query-news"),
         body: {'category': this.category});
 
-    var newsJson = json.decode(response.body);
+    List<dynamic> newsJson = json.decode(response.body);
 
-    print("fetchData: category = $category, reply: $newsJson");
+    print("NewsModel: fetchData: category = $category, reply: $newsJson");
     _news.addAll(newsJson.map((json) => News.fromJson(json)));
 
     setLoading(false);

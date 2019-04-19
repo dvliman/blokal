@@ -19,17 +19,15 @@ class _StartScreenState extends State<StartScreen>
     NewsModel("politics"),
   ];
 
-  static final List<Text> _tabs = [
-      new Text("something"),
-      new Text("another-thing"),
-//    ScopedModel<NewsModel> (
-//      model: _models[0], // news
-//      child: NewsList(),
-//    ),
-//    ScopedModel<NewsModel> (
-//      model: _models[1], // politics
-//      child: NewsList(),
-//    )
+  static final List<ScopedModel> _tabs = [
+    ScopedModel<NewsModel> (
+      model: _models[0], // news
+      child: NewsList(),
+    ),
+    ScopedModel<NewsModel> (
+      model: _models[1], // politics
+      child: NewsList(),
+    )
   ];
 
   @override
