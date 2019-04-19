@@ -9,6 +9,6 @@ class NewsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return null;
+    return Text("news-list");
   }
 }

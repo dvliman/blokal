@@ -1,3 +1,5 @@
+import 'package:blokal/models/news.dart';
+import 'package:blokal/ui/widgets/news_list.dart';
 import 'package:blokal/ui/widgets/news_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -9,12 +11,18 @@ class StartScreen extends StatefulWidget {
 
 class _StartScreenState extends State<StartScreen>
     with SingleTickerProviderStateMixin {
+
   TabController _tabController;
+  List<NewsModel> _models = <NewsModel>[
+    NewsModel("news"),
+    NewsModel("politics"),
+  ];
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: 3);
+    _models.forEach((model) => model.fetchData());
   }
 
   @override
@@ -39,8 +47,10 @@ class _StartScreenState extends State<StartScreen>
         body: TabBarView(
           controller: _tabController,
           children: <Widget>[
-            NewsListItem(),
-            Text("inside money"),
+            NewsList(_models[0]),
+            NewsList(_models[1]),
+//            NewsListItem(),
+//            Text("inside money"),
           ],
         ));
   }
