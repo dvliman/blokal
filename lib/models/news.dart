@@ -4,13 +4,16 @@ import 'package:blokal/models/base_model.dart';
 
 class NewsModel extends BaseModel {
   final String category;
+  String get getCategory => category;
 
   NewsModel(this.category);
 
   List<News> _news = List();
   List<News> get news => _news;
 
-  int get getCount => (_news == null) ? 0 : _news.length;
+  int get getCount => (_news == null)
+      ? 0
+      : _news.length;
 
   @override
   Future fetchData() async {
@@ -21,6 +24,7 @@ class NewsModel extends BaseModel {
     List<dynamic> newsJson = json.decode(response.body);
 
     print("NewsModel: fetchData: category = $category, reply: $newsJson");
+    _news.clear();
     _news.addAll(newsJson.map((json) => News.fromJson(json)));
 
     setLoading(false);

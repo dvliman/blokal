@@ -11,8 +11,7 @@ class NewsList extends StatelessWidget {
 
     return ScopedModelDescendant<NewsModel>(
       builder: (context, child, model) {
-        return Padding(
-            padding: const EdgeInsets.only(bottom: 8.0),
+        return Container(
             child: model.getCount == 0
                 ? Center(child: Text("No news available"))
                 : ListView.builder(

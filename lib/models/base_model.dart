@@ -8,13 +8,16 @@ abstract class BaseModel extends Model {
   }
 
   bool _loading = true;
-
+  bool get isLoading => _loading;
   void setLoading(bool state) {
     _loading = state;
     notifyListeners();
   }
 
-  bool get isLoading => _loading;
-
   Future fetchData();
+
+  Future refresh() async {
+    fetchData();
+    notifyListeners();
+  }
 }

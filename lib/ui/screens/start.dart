@@ -14,25 +14,9 @@ class _StartScreenState extends State<StartScreen>
 
   TabController _tabController;
 
-  static final List<NewsModel> _models = <NewsModel>[
+  static final List<NewsModel> _models = [
     NewsModel("news"),
-    NewsModel("politics"),
-  ];
-
-  static final List<Tab> forTabBar = [
-    Tab(text: "news-tab"),
-    Tab(text: "politics-tab"),
-  ];
-
-  static final List<ScopedModel> _tabs = [
-    ScopedModel<NewsModel> (
-      model: _models[0], // news
-      child: NewsList(),
-    ),
-    ScopedModel<NewsModel> (
-      model: _models[1], // politics
-      child: NewsList(),
-    )
+    NewsModel("money"),
   ];
 
   @override
@@ -61,13 +45,38 @@ class _StartScreenState extends State<StartScreen>
           centerTitle: true,
           bottom: TabBar(
             controller: _tabController,
-            tabs: forTabBar,
+            indicatorPadding: EdgeInsets.symmetric(horizontal: 20),
+            tabs: <Tab>[
+              Tab(text: "news"),
+              Tab(text: "money"),
+              Tab(text: "bola"),
+              Tab(text: "tekno"),
+              Tab(text: "otomotif"),
+              Tab(text: "lifestyle"),
+              Tab(text: "kolum"),
+            ],
           ),
         ),
         body: TabBarView(
           controller: _tabController,
-          children: _tabs,
+          children: <ScopedModel> [
+            ScopedModel<NewsModel>(
+              model: _models[0],
+              child: NewsList()
+            ),
+            ScopedModel<NewsModel>(
+              model: _models[1],
+              child: NewsList()
+            )
+          ]
         )
+    );
+  }
+
+  ScopedModel toScopedModel(NewsModel model) {
+    return ScopedModel<NewsModel> (
+      model: model,
+      child: NewsList()
     );
   }
 }
