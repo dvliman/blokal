@@ -29,7 +29,7 @@ class _StartScreenState extends State<StartScreen>
     print("StartScreenState: initState/0");
     super.initState();
 
-    _tabController = TabController(vsync: this, length: 3);
+    _tabController = TabController(vsync: this, length: _models.length);
     _models.forEach((model) => model.fetchData());
   }
 
@@ -49,7 +49,7 @@ class _StartScreenState extends State<StartScreen>
         appBar: AppBar(
           centerTitle: true,
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(5.0),
+            preferredSize: Size.fromHeight(1.0),
             child: TabBar(
               controller: _tabController,
               isScrollable: true,
