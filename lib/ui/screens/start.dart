@@ -51,16 +51,19 @@ class _StartScreenState extends State<StartScreen>
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(1.0),
             child: TabBar(
+              labelStyle: TextStyle(fontWeight: FontWeight.bold),
               controller: _tabController,
+              // so it doesn't truncate label's width
+              // as it tries to compact tabs into screen's width
               isScrollable: true,
               tabs: <Tab>[
-                Tab(text: "news"),
-                Tab(text: "finance"),
-                Tab(text: "tekno"),
-                Tab(text: "sports"),
-                Tab(text: "otomotif"),
-                Tab(text: "entertainment"),
-                Tab(text: "lifestyle"),
+                Tab(text: "NEWS"),
+                Tab(text: "FINANCE"),
+                Tab(text: "TEKNO"),
+                Tab(text: "SPORTS"),
+                Tab(text: "OTOMOTIF"),
+                Tab(text: "ENTERTAINMENT"),
+                Tab(text: "LIFESTYLE"),
               ],
             ),
           ),
