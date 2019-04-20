@@ -132,7 +132,7 @@ class _Image extends StatelessWidget {
             child: CachedNetworkImage(
               imageUrl: url,
               fit: BoxFit.cover,
-              errorWidget: const Icon(Icons.error),
+              errorWidget: (context, url, error) => Icon(Icons.error),
               fadeInDuration: Duration(milliseconds: 100),
             ),
           ),

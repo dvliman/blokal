@@ -70,10 +70,10 @@ class News {
     return News(
         title: json['title'],
         content: json['content'],
-        imageUrl: json['imageUrl'],
+        imageUrl: json['image_url'],
         category: json['category'],
-        sourceUrl: json['sourceUrl'],
-        sourceName: json['sourceName'],
-        publishedAt: json['publishedAt']);
+        sourceUrl: json['source_url'],
+        sourceName: json['source_name'],
+        publishedAt: json['published_at']);
   }
 }

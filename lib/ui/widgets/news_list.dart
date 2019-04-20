@@ -20,6 +20,7 @@ class NewsList extends StatelessWidget {
                     shrinkWrap: true,
                     itemCount: model.getCount,
                     itemBuilder: (context, index) {
+                      // TODO: wrap with column, add divider below?
                       return NewsListItem(news: model.news[index]);
                     }
                   )
