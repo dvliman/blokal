@@ -1,5 +1,6 @@
 import 'package:blokal/models/news.dart';
 import 'package:blokal/ui/widgets/hero_image.dart';
+import 'package:blokal/ui/widgets/news_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -10,8 +11,7 @@ class NewsListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("title: ${this.news.title}, category: ${this.news.category},"
-        "image-url: ${this.news.imageUrl}, tag: ${this.news.sourceUrl}");
+
     return Column(
       children: <Widget>[
         ListTile(
@@ -28,7 +28,7 @@ class NewsListItem extends StatelessWidget {
           onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
-//                builder: (context) => NewsDetailScreen(this.news)
+                builder: (context) => NewsDetail(this.news)
               )),
         )
       ]

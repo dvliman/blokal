@@ -1,8 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-/// HERO IMAGE
-/// Class used into building hero images & their specific hero pages.
 class HeroImage {
   static const num smallSize = 64.0, bigSize = 112.0, pageSize = 248.0;
 
