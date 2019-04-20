@@ -1,4 +1,3 @@
-import 'package:blokal/models/news.dart';
 import 'package:blokal/ui/screens/start.dart';
 import 'package:flutter/material.dart';
 

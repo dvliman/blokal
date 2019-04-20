@@ -12,9 +12,10 @@ class NewsListItem extends StatelessWidget {
     return Column(
       children: <Widget>[
         ListTile(
-          contentPadding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
+          contentPadding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
           title: Text(this.news.title),
           subtitle: Text(this.news.category),
+          // TODO: leading hero image
         )
       ]
     );
